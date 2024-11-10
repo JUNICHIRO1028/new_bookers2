@@ -1,0 +1,14 @@
+<!--books/index-->
+<h1>Books</h1>
+
+
+<% books.each do |book| %>
+    <p>投稿ユーザー画像:<%= image_tag book.user.get_profile_image(100,100) %></p>
+    <p>Title:<%= book.title %></p>
+    <p>Body:<%= book.body %></p>
+    <p>ユーザーネーム:<%= book.user.name %>
+    <%= link_to "show", book_path(book.id) %>
+<% end %>
+
+<!--users/show-->
+<!-- ユーザーの投稿一覧 -->
