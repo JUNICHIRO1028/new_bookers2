@@ -1,11 +1,12 @@
-<h1>Books</h1>
+<h1>Book detail</h1>
 
 
-    <p>投稿ユーザー画像:<%= image_tag @book.user.get_profile_image(100,100) %></p>
-    <p>Title:<%= @book.title %></p>
-    <p>Body:<%= @book.body %></p>
-    <p>ユーザーネーム:<%= @book.user.name %>
+    <%= image_tag @book.user.get_profile_image(100,100) %>
+    <%= @book.user.name %>
+    <%= @book.body %>
+
     <% if @book.user == current_user %>
-      <%= link_to "destroy", book_path(@book), method: :delete%>
-    <% end %>
-    
+
+      <%= link_to "Destroy", book_path(@book), method: :delete%>
+
+  <% end %>
