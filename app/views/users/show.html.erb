@@ -1,14 +1,7 @@
-<!--userinfo-->
-<h1>User info</h1>
+<!--userinfo-->  <!--New book-->
+<%= render 'books/list', user: @user, book: @book %>
 
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <h3><%= @user.name %></h3>
-  <h3><%= @user.introduction %></h3>
-  <% if @user == current_user %>
-    <a class="btn btn-outline-secondary btn-block"><%= link_to edit_user_path(@user) do %>
-      <i class="fa-solid fa-user-gear"></i></a>
-    <% end%>
-  <% end %>
+
 
 
 
