@@ -1,12 +1,12 @@
+<!--userinfo-->  <!--New book-->
+<%= render 'list', user: @user, book: @book %>
+
+<!--books/bookdetail(show)-->
 <h1>Book detail</h1>
 
-
-    <%= image_tag @book.user.get_profile_image(100,100) %>
-    <%= @book.user.name %>
+    <%= image_tag current_user.get_profile_image(100,100) %>
+    <%= current_user.name %>
+    <%= link_to "#{@book.title}", request.referer %>
     <%= @book.body %>
-
-    <% if @book.user == current_user %>
-      <%= link_to "Edit", edit_book_path(@book.id) %>
-      <%= link_to "Destroy", book_path(@book), method: :delete%>
-
-  <% end %>
+    <%= link_to "Edit", edit_book_path(@book.id)%>
+    <%= link_to "destroy"%>

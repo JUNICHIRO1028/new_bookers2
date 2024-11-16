@@ -1,0 +1,22 @@
+<!--部分userinfo/booknew/テンプレ-->
+<%= render 'books/list', user: @user, book: @book %>
+
+<!--user全員分-->
+<h1>Users</h1>
+
+<table>
+<thead>
+    <th>image</th>
+    <th>name</th>
+</thead>
+
+<tbody>
+    <% @users.each do |user| %>
+    <tr>
+    <td><span><%= image_tag user.get_profile_image(100,100) %></span></td>
+    <td><span><%= user.name %></span></td>
+    <td><span><%= link_to "edit", books_path%></span></td>
+    </tr>
+        <% end %>
+</tbody>
+</table>

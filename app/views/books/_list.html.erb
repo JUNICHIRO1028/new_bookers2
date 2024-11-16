@@ -4,25 +4,24 @@
 
 <!--userinfo-->
 <h1>User info</h1>
-  <%= image_tag user.get_profile_image(100,100) %>
+  <%= image_tag current_user.get_profile_image(100,100) %>
   <table class="table">
     <tbody>
       <tr>
         <th scope="col">name</th>
-        <td><%= user.name %></td>
+        <td><%= current_user.name %></td>
       </tr>
       <tr>
         <th scope="col">introduction</th>
-        <td><%= user.introduction %></td>
+        <td><%= current_user.introduction %></td>
       </tr>
     </tbody>
   </table>
 
-  <% if user == current_user %>
+  
     <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
       <i class="fa-solid fa-user-gear"></i>
     <% end%>
-  <% end %>
 
 
   <!-- bookのnew -->
@@ -35,23 +34,5 @@
   <%= f.submit '投稿'%>
 <% end %>
 
-<!--books/index-->
-<h1>Books</h1>
 
-<table>
-<thead>
-    <th>Title</th>
-    <th>Opinion</th>
-</thead>
-
-<tbody>
-    <% books.each do |book| %>
-    <tr>
-    <td><span><%= image_tag book.user.get_profile_image(100,100) %></span></td>
-    <td><span><%= link_to "#{book.title}", book_path(book.id) %></span></td>
-    <td><span><%= book.body %></span></td>
-    </tr>
-        <% end %>
-</tbody>
-</table>
 
