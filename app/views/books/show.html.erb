@@ -9,4 +9,4 @@
     <%= link_to "#{@book.title}", request.referer %>
     <%= @book.body %>
     <%= link_to "Edit", edit_book_path(@book.id)%>
-    <%= link_to "destroy"%>
+    <%= link_to "destroy", books_path(@book.id), method: :delete %>

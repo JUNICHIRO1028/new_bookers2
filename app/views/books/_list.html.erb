@@ -3,36 +3,33 @@
 </div>
 
 <!--userinfo-->
-<h1>User info</h1>
-  <%= image_tag current_user.get_profile_image(100,100) %>
-  <table class="table">
-    <tbody>
-      <tr>
-        <th scope="col">name</th>
-        <td><%= current_user.name %></td>
-      </tr>
-      <tr>
-        <th scope="col">introduction</th>
-        <td><%= current_user.introduction %></td>
-      </tr>
-    </tbody>
-  </table>
+      <h1>User info</h1>
+        <%= image_tag current_user.get_profile_image(100,100) %>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="col">name</th>
+                <td><%= current_user.name %></td>
+              </tr>
+              <tr>
+                <th scope="col">introduction</th>
+                <td><%= current_user.introduction %></td>
+              </tr>
+            </tbody>
+          </table>
+        <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fa-solid fa-user-gear"></i>
+        <% end%>
 
-  
-    <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
-      <i class="fa-solid fa-user-gear"></i>
-    <% end%>
-
-
-  <!-- bookのnew -->
-<h1>New book</h1>
-<%= form_with model: book do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_field :body %>
-  <%= f.submit '投稿'%>
-<% end %>
+      <!-- bookのnew -->
+      <h1>New book</h1>
+        <%= form_with model: book do |f| %>
+          <p>Title</p>
+            <%= f.text_field :title  %>
+          <p>Opinion</p>
+            <%= f.text_field :body %>
+            <%= f.submit 'Create Book', class:"btn btn-primary" %>
+        <% end %>
 
 
 
