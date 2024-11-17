@@ -13,10 +13,12 @@
                 <tr>
                 <td><%= image_tag current_user.get_profile_image(100,100) %>
                     <br><%= link_to "#{current_user.name }", user_path(current_user.id)%></td>
-                <td><%= link_to "#{@book.title}", request.referer %></td>
+                <td><%= link_to "#{@book.title}" %></td>
                 <td><%= @book.body %></td>
+                <% if @book.user == current_user %>
                 <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success"%></td>
                 <td><%= link_to "Destroy", book_path(@book.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+                <% end %>
                 </tr>
             </tbody>
         </table>
