@@ -1,12 +1,25 @@
 <!--userinfo-->  <!--New book-->
-<%= render 'list', user: @user, book: @book %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <%= render 'list', user: @user, book: @book %>
+        </div>
 
 <!--books/bookdetail(show)-->
-<h1>Book detail</h1>
-
-    <%= image_tag current_user.get_profile_image(100,100) %>
-    <%= current_user.name %>
-    <%= link_to "#{@book.title}", request.referer %>
-    <%= @book.body %>
-    <%= link_to "Edit", edit_book_path(@book.id)%>
-    <%= link_to "destroy", books_path(@book.id), method: :delete %>
+        <div class="col-md-8 offset-md-1">
+        <h1>Book detail</h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                <td><%= image_tag current_user.get_profile_image(100,100) %>
+                    <br><%= link_to "#{current_user.name }", user_path(current_user.id)%></td>
+                <td><%= link_to "#{@book.title}", request.referer %></td>
+                <td><%= @book.body %></td>
+                <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success"%></td>
+                <td><%= link_to "Destroy", book_path(@book.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
